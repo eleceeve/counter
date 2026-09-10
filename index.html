@@ -93,15 +93,16 @@
         display:-webkit-box;
         display:-ms-flexbox;
       }
-      .vertical-align {
-      }
     </style>
   </head>
   <body>
     <div id="_frame_1" class="beside-align">
       <div id="_games">
-        <br>
         <table id="_games_frame">
+          <tr>
+            <td colspan="2" style="text-align: left;">Games</td>
+            <td colspan="2" style="text-align: right;"><button id="_g_b_clear" onclick="_g_clear()">Clear</button></td>
+          </tr>
           <tr>
             <td><button id="_g_4_plus" class="b-cnt" onclick="_g_plus('_g_4')">＋</button></td>
             <td><button id="_g_3_plus" class="b-cnt" onclick="_g_plus('_g_3')">＋</button></td>
@@ -120,9 +121,17 @@
             <td><button id="_g_2_minus" class="b-cnt" onclick="_g_minus('_g_2')">ー</button></td>
             <td><button id="_g_1_minus" class="b-cnt" onclick="_g_minus('_g_1')">ー</button></td>
           </tr>
+          <tr>
+            <td colspan="2" style="text-align: left;"><label><input type="checkbox" id="_chk_start" name="_chk_start" checked>Start</label></td>
+            <td colspan="2" style="text-align: right;"><div id="_g_start">0</div></td>
+          </tr>
+          <tr>
+            <td colspan="4" style="text-align: right;"><button id="_g_b_set_start" onclick="_g_set_start()">Set</button></td>
+          </tr>
+          <tr>
+            <td colspan="4" style="text-align: left;"><button id="_g_b_calc" onclick="_g_calc()">Calc</button></td>
+          </tr>
         </table>
-        <br>
-        <button id="_g_b_calc" onclick="_g_calc()">Calc</button>
         <div class="div-spacer">
         </div>
         <div id="_output">
@@ -216,12 +225,31 @@
         }
         document.getElementById(_var).textContent = _var_p;
       }
+      function _g_clear() {
+        let _output_c = document.getElementById('result');
+        if (_output_c !== null) {
+          _output_c.remove();
+        }
+        document.getElementById('_g_4').textContent = 0;
+        document.getElementById('_g_3').textContent = 0;
+        document.getElementById('_g_2').textContent = 0;
+        document.getElementById('_g_1').textContent = 0;
+      }
+      function _g_set_start() {
+        _games_start = document.getElementById('_g_start').textContent = Number(document.getElementById('_g_4').textContent) * 1000 + Number(document.getElementById('_g_3').textContent) * 100 + Number(document.getElementById('_g_2').textContent) * 10 + Number(document.getElementById('_g_1').textContent);
+      }
       function _g_calc() {
         let _output_c = document.getElementById('result');
         if (_output_c !== null) {
           _output_c.remove();
         }
-        let _games = Number(document.getElementById('_g_4').textContent) * 1000 + Number(document.getElementById('_g_3').textContent) * 100 + Number(document.getElementById('_g_2').textContent) * 10 + Number(document.getElementById('_g_1').textContent);
+        const _use_start = document.getElementById('_chk_start');
+        if (_use_start.checked) {
+          var _games_start = document.getElementById('_g_start').textContent;
+        } else {
+          var _games_start = 0;
+        }
+        let _games = Number(document.getElementById('_g_4').textContent) * 1000 + Number(document.getElementById('_g_3').textContent) * 100 + Number(document.getElementById('_g_2').textContent) * 10 + Number(document.getElementById('_g_1').textContent) - Number(_games_start);
         var _output = '<div id="result">';
         var _var_p = document.getElementById('_p_1').textContent;
 	_output += '<div class="beside-align"><div class="sq-white-s"></div>';
