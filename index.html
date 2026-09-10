@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Counter</title>
     <style>
-      body {
-        overscroll-behavior-y: none;
+      html {
+        overscroll-behavior: none;
       }
       table {
         table-layout: fixed;
@@ -183,7 +183,8 @@
             <td colspan="6" style="text-align: left;"><br><label><input type="checkbox" id="_chk_reset" name="_chk_reset">Unlock reset</label></td>
           </tr>
           <tr>
-            <td colspan="6" style="text-align: left;"><br><div id="_fs_button_frame"><button id="_fs_button" onclick="_go_fullscreen()">Fullscreen</button></div></td>
+            <td colspan="4" style="text-align: left;"><br><div id="_fs_button_frame"><button id="_fs_button" onclick="_go_fullscreen()">Fullscreen</button></div></td>
+            <td colspan="2"><img src="qr_counter.png"></td>
           </tr>
         </table>
       </div>
