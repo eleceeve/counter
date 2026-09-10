@@ -179,6 +179,9 @@
           <tr>
             <td colspan="6" style="text-align: left;"><br><label><input type="checkbox" id="_chk_reset" name="_chk_reset">Unlock reset</label></td>
           </tr>
+          <tr>
+            <td colspan="6" style="text-align: left;"><br><div id="_fs_button_frame"><button id="_fs_button" onclick="_go_fullscreen()">Fullscreen</button></div></td>
+          </tr>
         </table>
       </div>
     </div>
@@ -289,6 +292,25 @@
         if (_unlock_reset.checked) {
           document.getElementById(_var).textContent = 0;
         }
+      }
+      function _go_fullscreen() {
+        const _element = document.documentElement;
+        _element.requestFullscreen();
+        let _button_c = document.getElementById('_fs_button');
+        if (_button_c !== null) {
+          _button_c.remove();
+        }
+        let _button_lc = document.getElementById('_fs_button_frame');
+        _button_lc.insertAdjacentHTML('beforeend', '<button id="_fs_button" onclick="_exit_fullscreen()">Exit</button>');
+      }
+      function _exit_fullscreen() {
+        document.exitFullscreen();
+        let _button_c = document.getElementById('_fs_button');
+        if (_button_c !== null) {
+          _button_c.remove();
+        }
+        let _button_lc = document.getElementById('_fs_button_frame');
+        _button_lc.insertAdjacentHTML('beforeend', '<button id="_fs_button" onclick="_go_fullscreen()">Fullscreen</button>');
       }
     </script>
   </body>
