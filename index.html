@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Counter</title>
+    <style>
+      table {
+        table-layout: fixed;
+        border: none;
+      }
+      td {
+        text-align: center;
+        border: none;
+      }
+      .div-spacer {
+        width: 20px;
+        height: 20px;
+      }
+      .b-cnt {
+        width: 28px;
+      }
+      .sq-white {
+        width: 30px;
+        height: 30px;
+        background: white;
+        border: 1px solid black;
+        margin: 0 auto;
+      }
+      .sq-white-s {
+        width: 20px;
+        height: 20px;
+        background: white;
+        border: 1px solid black;
+      }
+      .sq-red {
+        width: 30px;
+        height: 30px;
+        background: red;
+        border: 1px solid black;
+        margin: 0 auto;
+      }
+      .sq-red-s {
+        width: 20px;
+        height: 20px;
+        background: red;
+        border: 1px solid black;
+      }
+      .sq-green {
+        width: 30px;
+        height: 30px;
+        background: green;
+        border: 1px solid black;
+        margin: 0 auto;
+      }
+      .sq-green-s {
+        width: 20px;
+        height: 20px;
+        background: green;
+        border: 1px solid black;
+      }
+      .sq-yellow {
+        width: 30px;
+        height: 30px;
+        background: yellow;
+        border: 1px solid black;
+        margin: 0 auto;
+      }
+      .sq-yellow-s {
+        width: 20px;
+        height: 20px;
+        background: yellow;
+        border: 1px solid black;
+      }
+      .sq-blue {
+        width: 30px;
+        height: 30px;
+        background: blue;
+        border: 1px solid black;
+        margin: 0 auto;
+      }
+      .sq-blue-s {
+        width: 20px;
+        height: 20px;
+        background: blue;
+        border: 1px solid black;
+      }
+      .beside-align {
+        display: inline-block;
+        display:-webkit-box;
+        display:-ms-flexbox;
+      }
+      .vertical-align {
+      }
+    </style>
+  </head>
+  <body>
+    <div id="_frame_1" class="beside-align">
+      <div id="_games">
+        <br>
+        <table id="_games_frame">
+          <tr>
+            <td><button id="_g_4_plus" class="b-cnt" onclick="_g_plus('_g_4')">＋</button></td>
+            <td><button id="_g_3_plus" class="b-cnt" onclick="_g_plus('_g_3')">＋</button></td>
+            <td><button id="_g_2_plus" class="b-cnt" onclick="_g_plus('_g_2')">＋</button></td>
+            <td><button id="_g_1_plus" class="b-cnt" onclick="_g_plus('_g_1')">＋</button></td>
+          </tr>
+          <tr>
+            <td><div id="_g_4">0</div></td>
+            <td><div id="_g_3">0</div></td>
+            <td><div id="_g_2">0</div></td>
+            <td><div id="_g_1">0</div></td>
+          </tr>
+          <tr>
+            <td><button id="_g_4_minus" class="b-cnt" onclick="_g_minus('_g_4')">ー</button></td>
+            <td><button id="_g_3_minus" class="b-cnt" onclick="_g_minus('_g_3')">ー</button></td>
+            <td><button id="_g_2_minus" class="b-cnt" onclick="_g_minus('_g_2')">ー</button></td>
+            <td><button id="_g_1_minus" class="b-cnt" onclick="_g_minus('_g_1')">ー</button></td>
+          </tr>
+        </table>
+        <br>
+        <button id="_g_b_calc" onclick="_g_calc()">Calc</button>
+        <div class="div-spacer">
+        </div>
+        <div id="_output">
+        </div>
+      </div>
+      <div class="div-spacer"></div>
+      <div id="_prize">
+        <table id="_prize_frame">
+          <colgroup>
+            <col>
+            <col width=50>
+            <col width=50>
+            <col width=50>
+            <col width=50>
+            <col width=50>
+          </colgroup>
+          <tr>
+            <td></td>
+            <td id="_p_1_cell"><div id="_p_1_color" class="sq-white"></div></td>
+            <td id="_p_2_cell"><div id="_p_2_color" class="sq-red"></div></td>
+            <td id="_p_3_cell"><div id="_p_3_color" class="sq-green"></div></td>
+            <td id="_p_4_cell"><div id="_p_4_color" class="sq-yellow"></div></td>
+            <td id="_p_5_cell"><div id="_p_5_color" class="sq-blue"></div></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><button id="_p_1_plus" class="b-cnt" onclick="_p_plus('_p_1')">＋</button></td>
+            <td><button id="_p_2_plus" class="b-cnt" onclick="_p_plus('_p_2')">＋</button></td>
+            <td><button id="_p_3_plus" class="b-cnt" onclick="_p_plus('_p_3')">＋</button></td>
+            <td><button id="_p_4_plus" class="b-cnt" onclick="_p_plus('_p_4')">＋</button></td>
+            <td><button id="_p_5_plus" class="b-cnt" onclick="_p_plus('_p_5')">＋</button></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><div id="_p_1">0</div></td>
+            <td><div id="_p_2">0</div></td>
+            <td><div id="_p_3">0</div></td>
+            <td><div id="_p_4">0</div></td>
+            <td><div id="_p_5">0</div></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><button id="_p_1_minus" class="b-cnt" onclick="_p_minus('_p_1')">ー</button></td>
+            <td><button id="_p_2_minus" class="b-cnt" onclick="_p_minus('_p_2')">ー</button></td>
+            <td><button id="_p_3_minus" class="b-cnt" onclick="_p_minus('_p_3')">ー</button></td>
+            <td><button id="_p_4_minus" class="b-cnt" onclick="_p_minus('_p_4')">ー</button></td>
+            <td><button id="_p_5_minus" class="b-cnt" onclick="_p_minus('_p_5')">ー</button></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><br><button id="_p_1_minus" class="b-cnt" onclick="_p_reset('_p_1')">R</button></td>
+            <td><br><button id="_p_2_minus" class="b-cnt" onclick="_p_reset('_p_2')">R</button></td>
+            <td><br><button id="_p_3_minus" class="b-cnt" onclick="_p_reset('_p_3')">R</button></td>
+            <td><br><button id="_p_4_minus" class="b-cnt" onclick="_p_reset('_p_4')">R</button></td>
+            <td><br><button id="_p_5_minus" class="b-cnt" onclick="_p_reset('_p_5')">R</button></td>
+          </tr>
+          <tr>
+            <td colspan="6" style="text-align: left;"><br><label><input type="checkbox" id="_chk_reset" name="_chk_reset">Unlock reset</label></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <script>
+      function _g_plus(_var) {
+        let _output_c = document.getElementById('result');
+        if (_output_c !== null) {
+          _output_c.remove();
+        }
+        var _var_p = document.getElementById(_var).textContent;
+        if (_var_p == 9) {
+          _var_p = 0;
+        } else {
+          _var_p++;
+        }
+        document.getElementById(_var).textContent = _var_p;
+      }
+      function _g_minus(_var) {
+        let _output_c = document.getElementById('result');
+        if (_output_c !== null) {
+          _output_c.remove();
+        }
+        var _var_p = document.getElementById(_var).textContent;
+        if (_var_p == 0) {
+          _var_p = 9;
+        } else {
+          _var_p--;
+        }
+        document.getElementById(_var).textContent = _var_p;
+      }
+      function _g_calc() {
+        let _output_c = document.getElementById('result');
+        if (_output_c !== null) {
+          _output_c.remove();
+        }
+        let _games = Number(document.getElementById('_g_4').textContent) * 1000 + Number(document.getElementById('_g_3').textContent) * 100 + Number(document.getElementById('_g_2').textContent) * 10 + Number(document.getElementById('_g_1').textContent);
+        var _output = '<div id="result">';
+        var _var_p = document.getElementById('_p_1').textContent;
+	_output += '<div class="beside-align"><div class="sq-white-s"></div>';
+        if (_var_p == 0) {
+          _output += 0;
+        } else {
+          _output += '1/' + parseInt(_games / _var_p);
+        }
+        _output += '</div>';
+        var _var_p = document.getElementById('_p_2').textContent;
+	_output += '<div class="beside-align"><div class="sq-red-s"></div>';
+        if (_var_p == 0) {
+          _output += 0;
+        } else {
+          _output += '1/' + parseInt(_games / _var_p);
+        }
+        _output += '</div>';
+        var _var_p = document.getElementById('_p_3').textContent;
+	_output += '<div class="beside-align"><div class="sq-green-s"></div>';
+        if (_var_p == 0) {
+          _output += 0;
+        } else {
+          _output += '1/' + parseInt(_games / _var_p);
+        }
+        _output += '</div>';
+        var _var_p = document.getElementById('_p_4').textContent;
+	_output += '<div class="beside-align"><div class="sq-yellow-s"></div>';
+        if (_var_p == 0) {
+          _output += 0;
+        } else {
+          _output += '1/' + parseInt(_games / _var_p);
+        }
+        _output += '</div>';
+        var _var_p = document.getElementById('_p_5').textContent;
+	_output += '<div class="beside-align"><div class="sq-blue-s"></div>';
+        if (_var_p == 0) {
+          _output += 0;
+        } else {
+          _output += '1/' + parseInt(_games / _var_p);
+        }
+        _output += '</div>';
+        _output += '</div>';
+        let _output_lc = document.getElementById('_output');
+        _output_lc.insertAdjacentHTML('beforeend', _output);
+      }
+      function _p_plus(_var) {
+        let _output_c = document.getElementById('result');
+        if (_output_c !== null) {
+          _output_c.remove();
+        }
+        var _var_p = document.getElementById(_var).textContent;
+        _var_p++;
+        document.getElementById(_var).textContent = _var_p;
+      }
+      function _p_minus(_var) {
+        let _output_c = document.getElementById('result');
+        if (_output_c !== null) {
+          _output_c.remove();
+        }
+        var _var_p = document.getElementById(_var).textContent;
+        if (_var_p != 0) {
+          _var_p--;
+          document.getElementById(_var).textContent = _var_p;
+        }
+      }
+      function _p_reset(_var) {
+        let _output_c = document.getElementById('result');
+        if (_output_c !== null) {
+          _output_c.remove();
+        }
+        const _unlock_reset = document.getElementById('_chk_reset');
+        if (_unlock_reset.checked) {
+          document.getElementById(_var).textContent = 0;
+        }
+      }
+    </script>
+  </body>
+</html>
